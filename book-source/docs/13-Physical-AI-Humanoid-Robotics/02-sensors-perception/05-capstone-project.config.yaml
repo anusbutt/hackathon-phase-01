@@ -1,0 +1,147 @@
+# Multi-Sensor Capstone Configuration Template
+#
+# This YAML file provides centralized configuration for the capstone project.
+# Students can modify these parameters without changing code.
+#
+# Usage: ros2 run your_package multi_sensor_capstone_node --ros-args --params-file this_file.yaml
+
+# ============================================================================
+# SENSOR TOPICS
+# Update these to match your hardware setup or simulation environment
+# ============================================================================
+
+/multi_sensor_capstone_node:
+  ros__parameters:
+
+    # Input sensor topics
+    camera_topic: "/camera/image_raw"
+    depth_topic: "/camera/depth/points"
+    imu_topic: "/imu/data"
+
+    # Output topics
+    pose_output_topic: "/fused_pose"
+    odom_output_topic: "/fused_odom"
+
+    # ========================================================================
+    # TIME SYNCHRONIZATION
+    # Configure message_filters ApproximateTimeSynchronizer
+    # ========================================================================
+
+    # Queue size: Number of messages to buffer per sensor
+    # Increase if sensors have variable delays
+    sync_queue_size: 10
+
+    # Slop: Maximum time difference (seconds) between synchronized messages
+    # Decrease for tighter synchronization, increase for tolerance
+    # Common values: 0.05 (50ms) for fast sensors, 0.2 (200ms) for slow
+    sync_slop: 0.1
+
+    # ========================================================================
+    # FUSION PARAMETERS
+    # Scenario-specific tuning parameters
+    # ========================================================================
+
+    # Target fusion rate (Hz)
+    # Should match slowest sensor or desired control rate
+    fusion_rate: 30.0
+
+    # Minimum confidence threshold for outputs (0.0 to 1.0)
+    # Reject fusion results below this confidence
+    min_confidence_threshold: 0.5
+
+    # ========================================================================
+    # SCENARIO-SPECIFIC PARAMETERS
+    # Add parameters for your chosen capstone scenario
+    # ========================================================================
+
+    # Example: Balance Control Scenario
+    balance_control:
+      # Maximum allowed tilt angle (degrees) before imbalance
+      max_tilt_angle: 15.0
+
+      # IMU orientation trust weight (0.0 to 1.0)
+      # Higher = trust IMU more for orientation
+      imu_orientation_weight: 0.7
+
+      # Enable fall detection
+      enable_fall_detection: true
+
+      # Fall detection threshold (m/s^2)
+      fall_accel_threshold: 20.0
+
+    # Example: Obstacle Avoidance Scenario
+    obstacle_avoidance:
+      # Minimum safe distance to obstacles (meters)
+      safe_distance: 0.5
+
+      # Depth sensor range limits (meters)
+      min_range: 0.1
+      max_range: 10.0
+
+      # Camera detection confidence threshold
+      visual_detection_confidence: 0.6
+
+      # Fusion strategy: "depth_priority" or "visual_priority" or "weighted"
+      fusion_strategy: "weighted"
+
+    # Example: Visual-Inertial Odometry (VIO) Scenario
+    visual_inertial_odometry:
+      # Feature tracking parameters
+      max_features: 200
+      feature_quality: 0.01
+
+      # Kalman filter process noise
+      process_noise_position: 0.01
+      process_noise_velocity: 0.1
+      process_noise_orientation: 0.01
+
+      # Measurement noise
+      measurement_noise_visual: 0.1
+      measurement_noise_imu: 0.05
+
+      # Use depth for scale correction
+      enable_depth_scale: true
+
+# ============================================================================
+# QoS PROFILES (Advanced)
+# Fine-tune Quality of Service for each sensor stream
+# Uncomment and modify if default QoS causes data loss
+# ============================================================================
+
+# /multi_sensor_capstone_node:
+#   ros__parameters:
+#
+#     # Camera QoS
+#     camera_qos_reliability: "best_effort"  # or "reliable"
+#     camera_qos_history: "keep_last"
+#     camera_qos_depth: 5
+#
+#     # Depth QoS
+#     depth_qos_reliability: "best_effort"
+#     depth_qos_history: "keep_last"
+#     depth_qos_depth: 5
+#
+#     # IMU QoS (typically needs RELIABLE for control)
+#     imu_qos_reliability: "reliable"
+#     imu_qos_history: "keep_last"
+#     imu_qos_depth: 20
+
+# ============================================================================
+# LOGGING AND DEBUGGING
+# ============================================================================
+
+/multi_sensor_capstone_node:
+  ros__parameters:
+
+    # ROS2 logging level: DEBUG, INFO, WARN, ERROR
+    log_level: "INFO"
+
+    # Enable verbose fusion diagnostics
+    debug_mode: false
+
+    # Publish diagnostic messages (latency, dropped frames, etc.)
+    enable_diagnostics: true
+
+    # Save fusion data to CSV for post-analysis
+    record_to_file: false
+    output_csv_path: "/tmp/fusion_data.csv"

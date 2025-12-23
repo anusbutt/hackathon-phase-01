@@ -1,0 +1,98 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 24px sans-serif; fill: #333; }
+    .subtitle { font: 16px sans-serif; fill: #666; }
+    .box { fill: #e1f5fe; stroke: #0277bd; stroke-width: 2; rx: 10; ry: 10; }
+    .arrow { stroke: #0277bd; stroke-width: 2; marker-end: url(#arrowhead); }
+    .label { font: 14px sans-serif; fill: #333; text-anchor: middle; }
+    .robot { fill: #f5f5f5; stroke: #666; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0277bd" />
+    </marker>
+  </defs>
+
+  <text x="400" y="40" class="title" text-anchor="middle">Capstone: Autonomous Humanoid VLA Task</text>
+  <text x="400" y="70" class="subtitle" text-anchor="middle">Complete VLA pipeline from voice command to robot action</text>
+
+  <!-- Voice Command -->
+  <rect x="50" y="100" width="200" height="60" class="box"/>
+  <text x="150" y="130" class="label">"Please clean the table"</text>
+
+  <!-- Humanoid Robot -->
+  <g transform="translate(350, 100)">
+    <!-- Head -->
+    <circle cx="50" cy="30" r="25" class="robot"/>
+    <!-- Body -->
+    <rect x="35" y="55" width="30" height="50" class="robot"/>
+    <!-- Arms -->
+    <line x1="25" y1="65" x2="35" y2="65" stroke="#666" stroke-width="4"/>
+    <line x1="85" y1="65" x2="95" y2="65" stroke="#666" stroke-width="4"/>
+    <!-- Legs -->
+    <line x1="45" y1="105" x2="45" y2="140" stroke="#666" stroke-width="4"/>
+    <line x1="65" y1="105" x2="65" y2="140" stroke="#666" stroke-width="4"/>
+    <!-- Eyes -->
+    <circle cx="40" cy="25" r="3" fill="#333"/>
+    <circle cx="60" cy="25" r="3" fill="#333"/>
+    <!-- Microphone -->
+    <circle cx="50" cy="15" r="5" fill="#aaa" stroke="#666" stroke-width="1"/>
+  </g>
+
+  <!-- Whisper Processing -->
+  <rect x="50" y="200" width="200" height="60" class="box"/>
+  <text x="150" y="230" class="label">Whisper: "clean the table"</text>
+
+  <!-- Arrow from voice to Whisper -->
+  <line x1="150" y1="160" x2="150" y2="200" class="arrow"/>
+
+  <!-- LLM Planning -->
+  <rect x="50" y="300" width="200" height="60" class="box"/>
+  <text x="150" y="330" class="label">LLM: "1) Find table 2) Find objects 3) Grasp 4) Dispose"</text>
+
+  <!-- Arrow from Whisper to LLM -->
+  <line x1="150" y1="260" x2="150" y2="300" class="arrow"/>
+
+  <!-- Vision Processing -->
+  <rect x="550" y="300" width="200" height="60" class="box"/>
+  <text x="650" y="330" class="label">Vision: "Table at (2,1), cup at (2.2,1.1)"</text>
+
+  <!-- Arrow from LLM to Vision -->
+  <line x1="250" y1="330" x2="550" y2="330" class="arrow"/>
+
+  <!-- Action Execution -->
+  <rect x="300" y="400" width="200" height="60" class="box"/>
+  <text x="400" y="430" class="label">Execute: Navigate → Grasp → Dispose</text>
+
+  <!-- Arrows from LLM and Vision to Action -->
+  <line x1="150" y1="360" x2="350" y2="400" class="arrow"/>
+  <line x1="650" y1="360" x2="550" y2="400" class="arrow"/>
+
+  <!-- Feedback -->
+  <rect x="300" y="500" width="200" height="60" class="box"/>
+  <text x="400" y="530" class="label">"Table cleaned successfully"</text>
+
+  <!-- Arrow from Action to Feedback -->
+  <line x1="400" y1="460" x2="400" y2="500" class="arrow"/>
+
+  <!-- Arrow from Feedback to Robot (for loop) -->
+  <line x1="400" y1="560" x2="400" y2="580" stroke="#0277bd" stroke-width="2"/>
+  <line x1="400" y1="580" x2="150" y2="580" stroke="#0277bd" stroke-width="2"/>
+  <line x1="150" y1="580" x2="150" y2="100" stroke="#0277bd" stroke-width="2"/>
+
+  <!-- Scene Elements -->
+  <rect x="320" y="180" width="120" height="10" fill="#8d6e63"/> <!-- Table -->
+  <rect x="350" y="170" width="15" height="15" fill="#f44336"/> <!-- Cup -->
+  <rect x="380" y="175" width="10" height="10" fill="#4caf50"/> <!-- Bottle -->
+  <rect x="410" y="172" width="12" height="12" fill="#ff9800"/> <!-- Book -->
+
+  <!-- Capstone Requirements -->
+  <text x="50" y="580" class="label" text-anchor="start" font-weight="bold">Capstone Requirements:</text>
+  <text x="50" y="600" class="label" text-anchor="start">• Voice recognition</text>
+  <text x="180" y="580" class="label" text-anchor="start">• Task planning</text>
+  <text x="180" y="600" class="label" text-anchor="start">• Object detection</text>
+  <text x="320" y="580" class="label" text-anchor="start">• Navigation</text>
+  <text x="320" y="600" class="label" text-anchor="start">• Manipulation</text>
+  <text x="460" y="580" class="label" text-anchor="start">• Action execution</text>
+  <text x="460" y="600" class="label" text-anchor="start">• Feedback loop</text>
+</svg>

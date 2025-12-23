@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f8f9fa"/>
+  <text x="400" y="180" text-anchor="middle" font-size="24" fill="#6c757d" font-family="Arial, sans-serif">
+    URDF Humanoid Robot Structure
+  </text>
+  <text x="400" y="220" text-anchor="middle" font-size="16" fill="#adb5bd" font-family="Arial, sans-serif">
+    Placeholder - To be added in future iteration
+  </text>
+  <rect x="50" y="50" width="700" height="300" fill="none" stroke="#dee2e6" stroke-width="2" stroke-dasharray="5,5"/>
+</svg>

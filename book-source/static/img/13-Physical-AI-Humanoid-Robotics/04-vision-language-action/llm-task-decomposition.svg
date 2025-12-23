@@ -1,0 +1,56 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 24px sans-serif; fill: #333; }
+    .subtitle { font: 16px sans-serif; fill: #666; }
+    .box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 10; ry: 10; }
+    .arrow { stroke: #7b1fa2; stroke-width: 2; marker-end: url(#arrowhead); }
+    .label { font: 14px sans-serif; fill: #333; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2" />
+    </marker>
+  </defs>
+
+  <text x="400" y="40" class="title" text-anchor="middle">LLM Task Decomposition</text>
+  <text x="400" y="70" class="subtitle" text-anchor="middle">Natural language to ROS2 action sequences</text>
+
+  <!-- High Level Command -->
+  <rect x="150" y="100" width="500" height="60" class="box"/>
+  <text x="400" y="125" class="label" font-weight="bold">"Clean the room"</text>
+  <text x="400" y="145" class="label">High-level natural language command</text>
+
+  <!-- LLM Processing -->
+  <rect x="250" y="200" width="300" height="80" class="box"/>
+  <text x="400" y="230" class="label">Large Language Model</text>
+  <text x="400" y="250" class="label">Task Decomposition & Planning</text>
+
+  <!-- Arrow from Command to LLM -->
+  <line x1="400" y1="160" x2="400" y2="200" class="arrow"/>
+
+  <!-- Decomposed Tasks -->
+  <rect x="50" y="320" width="700" height="160" class="box"/>
+  <text x="400" y="340" class="label" font-weight="bold">Decomposed Action Sequence:</text>
+  <text x="400" y="370" class="label">1. Navigate to "room" (ROS2 Navigation2)</text>
+  <text x="400" y="390" class="label">2. Identify trash objects (Object Detection)</text>
+  <text x="400" y="410" class="label">3. Approach trash object (Navigation)</text>
+  <text x="400" y="430" class="label">4. Grasp trash object (Manipulation)</text>
+  <text x="400" y="450" class="label">5. Navigate to disposal location (Navigation)</text>
+  <text x="400" y="470" class="label">6. Release trash object (Manipulation)</text>
+
+  <!-- Arrow from LLM to Decomposed Tasks -->
+  <line x1="400" y1="280" x2="400" y2="320" class="arrow"/>
+
+  <!-- Prompting Strategies -->
+  <text x="100" y="520" class="label" text-anchor="start" font-weight="bold">Prompting Strategies:</text>
+  <text x="100" y="540" class="label" text-anchor="start">• Chain of Thought (CoT)</text>
+  <text x="100" y="560" class="label" text-anchor="start">• Few-shot examples</text>
+
+  <!-- Grounding Techniques -->
+  <text x="500" y="520" class="label" text-anchor="start" font-weight="bold">Grounding Techniques:</text>
+  <text x="500" y="540" class="label" text-anchor="start">• Physical world context</text>
+  <text x="500" y="560" class="label" text-anchor="start">• Robot capabilities</text>
+
+  <!-- LLM Capabilities -->
+  <text x="400" y="590" class="subtitle" text-anchor="middle">LLMs bridge high-level intent with executable robotic actions</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Domain Randomization for Sim-to-Real Transfer</title>
+  <desc>Diagram showing how domain randomization varies simulation parameters to improve real-world performance</desc>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Domain Randomization</text>
+
+  <!-- Simulation Variations -->
+  <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Simulation Parameter Variations</text>
+
+  <!-- Lighting Variations -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="200" height="150" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Lighting Conditions</text>
+    <circle cx="50" cy="70" r="15" fill="#f1c40f" /> <!-- Sun -->
+    <circle cx="150" cy="70" r="15" fill="#f39c12" /> <!-- Different sun -->
+    <text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Varied Intensity & Direction</text>
+  </g>
+
+  <!-- Texture Variations -->
+  <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="200" height="150" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Surface Textures</text>
+    <rect x="30" y="50" width="30" height="30" fill="#95a5a6" />
+    <rect x="70" y="50" width="30" height="30" fill="#7f8c8d" />
+    <rect x="110" y="50" width="30" height="30" fill="#95a5a6" />
+    <rect x="30" y="90" width="30" height="30" fill="#e74c3c" />
+    <rect x="70" y="90" width="30" height="30" fill="#3498db" />
+    <rect x="110" y="90" width="30" height="30" fill="#2ecc71" />
+    <text x="100" y="135" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Varied Colors & Materials</text>
+  </g>
+
+  <!-- Physics Variations -->
+  <g transform="translate(100, 280)">
+    <rect x="0" y="0" width="200" height="150" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Physics Parameters</text>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Friction Coefficients</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Mass Properties</text>
+    <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Contact Dynamics</text>
+    <text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Varied for Robustness</text>
+  </g>
+
+  <!-- Sensor Noise Variations -->
+  <g transform="translate(500, 280)">
+    <rect x="0" y="0" width="200" height="150" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Sensor Characteristics</text>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Noise Models</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Resolution Variations</text>
+    <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Distortion Parameters</text>
+    <text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Varied for Realism</text>
+  </g>
+
+  <!-- Sim-to-Real Transfer Arrow -->
+  <line x1="400" y1="460" x2="400" y2="520" stroke="#e74c3c" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+  <text x="400" y="490" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Sim-to-Real</text>
+
+  <!-- Real World -->
+  <g transform="translate(300, 520)">
+    <rect x="0" y="0" width="200" height="60" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="10" />
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Real World</text>
+  </g>
+
+  <!-- Robot Training Process -->
+  <g transform="translate(200, 450)">
+    <rect x="0" y="0" width="400" height="40" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="10" />
+    <text x="200" y="25" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Robot Training with Varied Conditions</text>
+  </g>
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+    </marker>
+  </defs>
+</svg>

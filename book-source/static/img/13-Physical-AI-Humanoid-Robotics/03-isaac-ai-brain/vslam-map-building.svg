@@ -1,0 +1,149 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Visual SLAM Map Building Process</title>
+  <desc>Diagram showing how Visual SLAM builds maps and localizes robots using camera data</desc>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Visual SLAM Process</text>
+
+  <!-- Environment Scene -->
+  <g transform="translate(50, 100)">
+    <!-- Room outline -->
+    <rect x="0" y="0" width="400" height="300" fill="none" stroke="#bdc3c7" stroke-width="3" />
+
+    <!-- Objects in environment -->
+    <rect x="50" y="50" width="40" height="80" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+    <rect x="300" y="100" width="60" height="100" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+    <circle cx="200" cy="200" r="30" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+
+    <!-- Robot path -->
+    <path d="M 200 250 Q 250 200 300 180 Q 350 160 360 120"
+          fill="none" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" />
+
+    <!-- Robot positions -->
+    <g transform="translate(200, 250)">
+      <circle cx="0" cy="0" r="10" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <text x="0" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">t=0</text>
+    </g>
+
+    <g transform="translate(275, 190)">
+      <circle cx="0" cy="0" r="10" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <text x="0" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">t=1</text>
+    </g>
+
+    <g transform="translate(360, 120)">
+      <circle cx="0" cy="0" r="10" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <text x="0" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">t=2</text>
+    </g>
+
+    <text x="200" y="330" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Environment with Visual Features</text>
+  </g>
+
+  <!-- Feature Detection -->
+  <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="180" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Feature Detection</text>
+
+    <!-- Sample features -->
+    <circle cx="40" cy="50" r="5" fill="#e74c3c" />
+    <circle cx="80" cy="40" r="5" fill="#e74c3c" />
+    <circle cx="120" cy="60" r="5" fill="#e74c3c" />
+    <circle cx="60" cy="70" r="5" fill="#e74c3c" />
+    <circle cx="100" cy="50" r="5" fill="#e74c3c" />
+
+    <text x="90" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Visual Keypoints</text>
+  </g>
+
+  <!-- Tracking & Matching -->
+  <g transform="translate(700, 100)">
+    <rect x="0" y="0" width="180" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Tracking &</text>
+    <text x="90" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Matching</text>
+
+    <!-- Feature correspondence lines -->
+    <line x1="40" y1="50" x2="140" y2="60" stroke="#27ae60" stroke-width="2" />
+    <line x1="80" y1="40" x2="120" y2="45" stroke="#27ae60" stroke-width="2" />
+    <line x1="120" y1="60" x2="60" y2="70" stroke="#27ae60" stroke-width="2" />
+
+    <text x="90" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Feature Correspondences</text>
+  </g>
+
+  <!-- Map Building -->
+  <g transform="translate(500, 230)">
+    <rect x="0" y="0" width="380" height="120" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="190" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Map Building & Localization</text>
+
+    <!-- 3D point cloud representation -->
+    <circle cx="80" cy="60" r="4" fill="#3498db" />
+    <circle cx="100" cy="50" r="4" fill="#3498db" />
+    <circle cx="120" cy="70" r="4" fill="#3498db" />
+    <circle cx="140" cy="60" r="4" fill="#3498db" />
+    <circle cx="160" cy="80" r="4" fill="#3498db" />
+    <circle cx="180" cy="50" r="4" fill="#3498db" />
+    <circle cx="200" cy="70" r="4" fill="#3498db" />
+    <circle cx="220" cy="60" r="4" fill="#3498db" />
+    <circle cx="240" cy="80" r="4" fill="#3498db" />
+    <circle cx="260" cy="50" r="4" fill="#3498db" />
+    <circle cx="280" cy="70" r="4" fill="#3498db" />
+    <circle cx="300" cy="60" r="4" fill="#3498db" />
+
+    <!-- Robot pose estimation -->
+    <g transform="translate(150, 90)">
+      <circle cx="0" cy="0" r="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2" />
+      <text x="0" y="20" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Estimated Pose</text>
+    </g>
+  </g>
+
+  <!-- Process Flow Arrows -->
+  <line x1="450" y1="200" x2="500" y2="150" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="680" y1="150" x2="700" y2="150" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="590" y1="200" x2="590" y2="230" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+
+  <!-- Loop Closure -->
+  <g transform="translate(300, 350)">
+    <rect x="0" y="0" width="300" height="80" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="150" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Loop Closure & Map Optimization</text>
+    <text x="150" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Recognizing previously visited locations to correct drift</text>
+  </g>
+
+  <!-- Final Map -->
+  <g transform="translate(650, 350)">
+    <rect x="0" y="0" width="180" height="80" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="10" />
+    <text x="90" y="35" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Final 3D Map</text>
+    <text x="90" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="white">+ Robot Trajectory</text>
+  </g>
+
+  <!-- Loop closure arrow -->
+  <line x1="450" y1="390" x2="650" y2="390" stroke="#f39c12" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+
+  <!-- Process Steps -->
+  <g transform="translate(50, 450)">
+    <rect x="0" y="0" width="800" height="120" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="400" y="25" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Visual SLAM Process Steps</text>
+
+    <text x="100" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">1. Feature</text>
+    <text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Detection</text>
+
+    <text x="250" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">2. Feature</text>
+    <text x="250" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Tracking</text>
+
+    <text x="400" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">3. Pose</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Estimation</text>
+
+    <text x="550" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">4. Map</text>
+    <text x="550" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Building</text>
+
+    <text x="700" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">5. Loop</text>
+    <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Closure</text>
+  </g>
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+    </marker>
+  </defs>
+</svg>

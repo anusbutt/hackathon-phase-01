@@ -1,0 +1,172 @@
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <title>Nav2 Costmap Layers for Humanoid Navigation</title>
+  <desc>Diagram showing Nav2 costmap layers with special considerations for bipedal humanoid navigation</desc>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Nav2 Costmap Layers</text>
+
+  <!-- Main Environment -->
+  <g transform="translate(50, 100)">
+    <!-- Base map with obstacles -->
+    <rect x="0" y="0" width="400" height="400" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" />
+
+    <!-- Static obstacles -->
+    <rect x="50" y="50" width="60" height="60" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+    <rect x="250" y="100" width="80" height="40" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+    <circle cx="150" cy="200" r="40" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+    <rect x="300" y="250" width="50" height="80" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" />
+
+    <!-- Goal location -->
+    <circle cx="350" cy="50" r="15" fill="#2ecc71" stroke="#27ae60" stroke-width="3" />
+    <text x="350" y="35" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Goal</text>
+
+    <!-- Humanoid robot starting position -->
+    <g transform="translate(50, 350)">
+      <!-- Robot body -->
+      <rect x="-15" y="-20" width="30" height="30" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <!-- Robot head -->
+      <circle cx="0" cy="-30" r="8" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <!-- Robot legs -->
+      <line x1="-10" y1="10" x2="-10" y2="30" stroke="#2980b9" stroke-width="3" />
+      <line x1="10" y1="10" x2="10" y2="30" stroke="#2980b9" stroke-width="3" />
+      <text x="0" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Robot</text>
+    </g>
+
+    <!-- Navigation path -->
+    <path d="M 65 335 Q 150 300 200 250 Q 250 200 300 150 Q 340 100 340 65"
+          fill="none" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" />
+
+    <text x="200" y="440" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Environment with Static Map</text>
+  </g>
+
+  <!-- Costmap Layers -->
+  <g transform="translate(500, 100)">
+    <!-- Static Layer -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="180" height="80" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="10" />
+      <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Static Layer</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Pre-built map</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">with known obstacles</text>
+    </g>
+
+    <!-- Obstacle Layer -->
+    <g transform="translate=">
+      <rect x="0" y="100" width="180" height="80" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="10" />
+      <text x="90" y="125" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Obstacle Layer</text>
+      <text x="90" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Real-time sensor</text>
+      <text x="90" y="165" text-anchor="middle" font-family="Arial" font-size="12" fill="white">data integration</text>
+    </g>
+
+    <!-- Inflation Layer -->
+    <g transform="translate(0, 200)">
+      <rect x="0" y="0" width="180" height="80" fill="#f39c12" stroke="#d35400" stroke-width="2" rx="10" />
+      <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Inflation Layer</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Safety buffer</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">around obstacles</text>
+    </g>
+
+    <!-- Voxel Layer -->
+    <g transform="translate(0, 300)">
+      <rect x="0" y="0" width="180" height="80" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="10" />
+      <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Voxel Layer</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">3D obstacle</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">representation</text>
+    </g>
+
+    <!-- Humanoid-Specific Layer -->
+    <g transform="translate(0, 400)">
+      <rect x="0" y="0" width="180" height="80" fill="#1abc9c" stroke="#16a085" stroke-width="2" rx="10" />
+      <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Humanoid Layer</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Bipedal constraints</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">(foot placement, stability)</text>
+    </g>
+
+    <text x="90" y="-20" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Costmap Layers</text>
+  </g>
+
+  <!-- Cost Visualization -->
+  <g transform="translate(50, 530)">
+    <rect x="0" y="0" width="400" height="120" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="200" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Cost Visualization</text>
+
+    <!-- Grid representation -->
+    <g transform="translate(50, 40)">
+      <!-- Cost values legend -->
+      <rect x="0" y="0" width="20" height="20" fill="#2ecc71" />
+      <text x="30" y="15" font-family="Arial" font-size="12" fill="#2c3e50">Low Cost (Free)</text>
+
+      <rect x="0" y="30" width="20" height="20" fill="#f1c40f" />
+      <text x="30" y="45" font-family="Arial" font-size="12" fill="#2c3e50">Medium Cost</text>
+
+      <rect x="0" y="60" width="20" height="20" fill="#e74c3c" />
+      <text x="30" y="75" font-family="Arial" font-size="12" fill="#2c3e50">High Cost (Obstacle)</text>
+
+      <rect x="0" y="90" width="20" height="20" fill="#000000" />
+      <text x="30" y="105" font-family="Arial" font-size="12" fill="#2c3e50">Unknown</text>
+    </g>
+
+    <!-- Example cost grid -->
+    <g transform="translate(180, 40)">
+      <!-- Simple 5x5 grid example -->
+      <rect x="0" y="0" width="10" height="10" fill="#2ecc71" />
+      <rect x="12" y="0" width="10" height="10" fill="#2ecc71" />
+      <rect x="24" y="0" width="10" height="10" fill="#2ecc71" />
+      <rect x="36" y="0" width="10" height="10" fill="#f1c40f" />
+      <rect x="48" y="0" width="10" height="10" fill="#e74c3c" />
+
+      <rect x="0" y="12" width="10" height="10" fill="#2ecc71" />
+      <rect x="12" y="12" width="10" height="10" fill="#2ecc71" />
+      <rect x="24" y="12" width="10" height="10" fill="#f1c40f" />
+      <rect x="36" y="12" width="10" height="10" fill="#f1c40f" />
+      <rect x="48" y="12" width="10" height="10" fill="#e74c3c" />
+
+      <rect x="0" y="24" width="10" height="10" fill="#2ecc71" />
+      <rect x="12" y="24" width="10" height="10" fill="#f1c40f" />
+      <rect x="24" y="24" width="10" height="10" fill="#f1c40f" />
+      <rect x="36" y="24" width="10" height="10" fill="#e74c3c" />
+      <rect x="48" y="24" width="10" height="10" fill="#e74c3c" />
+
+      <rect x="0" y="36" width="10" height="10" fill="#f1c40f" />
+      <rect x="12" y="36" width="10" height="10" fill="#f1c40f" />
+      <rect x="24" y="36" width="10" height="10" fill="#e74c3c" />
+      <rect x="36" y="36" width="10" height="10" fill="#e74c3c" />
+      <rect x="48" y="36" width="10" height="10" fill="#e74c3c" />
+
+      <rect x="0" y="48" width="10" height="10" fill="#e74c3c" />
+      <rect x="12" y="48" width="10" height="10" fill="#e74c3c" />
+      <rect x="24" y="48" width="10" height="10" fill="#e74c3c" />
+      <rect x="36" y="48" width="10" height="10" fill="#e74c3c" />
+      <rect x="48" y="48" width="10" height="10" fill="#e74c3c" />
+    </g>
+  </g>
+
+  <!-- Humanoid Navigation Considerations -->
+  <g transform="translate(500, 530)">
+    <rect x="0" y="0" width="450" height="120" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="225" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Humanoid Navigation Considerations</text>
+
+    <text x="20" y="50" font-family="Arial" font-size="12" fill="#2c3e50">• Footstep planning for discrete foot placements</text>
+    <text x="20" y="70" font-family="Arial" font-size="12" fill="#2c3e50">• Center-of-mass stability during locomotion</text>
+    <text x="20" y="90" font-family="Arial" font-size="12" fill="#2c3e50">• Gait constraints and step height limitations</text>
+    <text x="240" y="50" font-family="Arial" font-size="12" fill="#2c3e50">• Balance recovery behaviors</text>
+    <text x="240" y="70" font-family="Arial" font-size="12" fill="#2c3e50">• Stair and obstacle negotiation</text>
+    <text x="240" y="90" font-family="Arial" font-size="12" fill="#2c3e50">• Terrain adaptability for uneven surfaces</text>
+  </g>
+
+  <!-- Layer Combination Arrow -->
+  <line x1="450" y1="300" x2="500" y2="300" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+
+  <!-- Final Navigation Path Arrow -->
+  <line x1="450" y1="600" x2="500" y2="600" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+    </marker>
+  </defs>
+</svg>

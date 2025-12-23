@@ -1,0 +1,164 @@
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <title>Autonomous Navigation System Integration</title>
+  <desc>Diagram showing integration of Isaac Sim, Isaac ROS, and Nav2 in complete autonomous humanoid system</desc>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Autonomous Navigation System Integration</text>
+
+  <!-- Isaac Sim Component -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="250" height="200" fill="#3498db" stroke="#2980b9" stroke-width="3" rx="15" />
+    <text x="125" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Isaac Sim</text>
+    <text x="125" y="50" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Simulation</text>
+
+    <!-- Robot in simulation -->
+    <g transform="translate(125, 100)">
+      <!-- Robot body -->
+      <rect x="-30" y="-40" width="60" height="60" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2" />
+      <!-- Robot head -->
+      <circle cx="0" cy="-60" r="15" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2" />
+      <!-- Robot arms -->
+      <line x1="-30" y1="-20" x2="-60" y2="0" stroke="#7f8c8d" stroke-width="3" />
+      <line x1="30" y1="-20" x2="60" y2="0" stroke="#7f8c8d" stroke-width="3" />
+      <!-- Robot legs -->
+      <line x1="-20" y1="20" x2="-20" y2="60" stroke="#7f8c8d" stroke-width="3" />
+      <line x1="20" y1="20" x2="20" y2="60" stroke="#7f8c8d" stroke-width="3" />
+    </g>
+
+    <!-- Simulation environment -->
+    <rect x="20" y="130" width="210" height="50" fill="#2c3e50" stroke="#1a252f" stroke-width="2" />
+    <text x="125" y="165" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Virtual Environment</text>
+
+    <text x="125" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Photorealistic Rendering</text>
+  </g>
+
+  <!-- Isaac ROS Component -->
+  <g transform="translate(375, 100)">
+    <rect x="0" y="0" width="250" height="200" fill="#9b59b6" stroke="#8e44ad" stroke-width="3" rx="15" />
+    <text x="125" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Isaac ROS</text>
+    <text x="125" y="50" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Perception</text>
+
+    <!-- GPU acceleration -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="210" height="40" fill="#8e44ad" stroke="#7d3c98" stroke-width="2" rx="5" />
+      <text x="105" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="white">GPU Acceleration (CUDA)</text>
+    </g>
+
+    <!-- Perception outputs -->
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="90" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+      <text x="45" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">VSLAM</text>
+    </g>
+
+    <g transform="translate(140, 120)">
+      <rect x="0" y="0" width="90" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+      <text x="45" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Object Detection</text>
+    </g>
+
+    <text x="125" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Hardware-Accelerated Processing</text>
+  </g>
+
+  <!-- Nav2 Component -->
+  <g transform="translate(700, 100)">
+    <rect x="0" y="0" width="250" height="200" fill="#f39c12" stroke="#d35400" stroke-width="3" rx="15" />
+    <text x="125" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Nav2</text>
+    <text x="125" y="50" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Navigation</text>
+
+    <!-- Global planner -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="90" height="30" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5" />
+      <text x="45" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Global Planner</text>
+    </g>
+
+    <!-- Local planner -->
+    <g transform="translate(140, 70)">
+      <rect x="0" y="0" width="90" height="30" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5" />
+      <text x="45" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Local Planner</text>
+    </g>
+
+    <!-- Costmaps -->
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="210" height="30" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5" />
+      <text x="105" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Global & Local Costmaps</text>
+    </g>
+
+    <text x="125" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Path Planning & Control</text>
+  </g>
+
+  <!-- Data Flow Arrows -->
+  <!-- Isaac Sim to Isaac ROS -->
+  <line x1="300" y1="200" x2="375" y2="200" stroke="#27ae60" stroke-width="4" marker-end="url(#arrowhead)" />
+  <text x="337" y="185" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Sensor Data</text>
+  <text x="337" y="215" text-anchor="middle" font-family="Arial" font-size="10" fill="#7f8c8d">(Cameras, LiDAR, IMU)</text>
+
+  <!-- Isaac ROS to Nav2 -->
+  <line x1="625" y1="200" x2="700" y2="200" stroke="#27ae60" stroke-width="4" marker-end="url(#arrowhead)" />
+  <text x="662" y="185" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Perception Output</text>
+  <text x="662" y="215" text-anchor="middle" font-family="Arial" font-size="10" fill="#7f8c8d">(Pose, Map, Obstacles)</text>
+
+  <!-- Physical Robot (real world) -->
+  <g transform="translate(50, 350)">
+    <rect x="0" y="0" width="900" height="200" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="3" rx="15" />
+    <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Physical Humanoid Robot</text>
+
+    <!-- Real robot -->
+    <g transform="translate(450, 100)">
+      <!-- Robot body -->
+      <rect x="-30" y="-40" width="60" height="60" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <!-- Robot head -->
+      <circle cx="0" cy="-60" r="15" fill="#3498db" stroke="#2980b9" stroke-width="2" />
+      <!-- Robot arms -->
+      <line x1="-30" y1="-20" x2="-60" y2="0" stroke="#2980b9" stroke-width="3" />
+      <line x1="30" y1="-20" x2="60" y2="0" stroke="#2980b9" stroke-width="3" />
+      <!-- Robot legs -->
+      <line x1="-20" y1="20" x2="-20" y2="60" stroke="#2980b9" stroke-width="3" />
+      <line x1="20" y1="20" x2="20" y2="60" stroke="#2980b9" stroke-width="3" />
+    </g>
+
+    <!-- Real sensors -->
+    <g transform="translate(200, 130)">
+      <rect x="0" y="0" width="100" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+      <text x="50" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Real Sensors</text>
+    </g>
+
+    <g transform="translate(700, 130)">
+      <rect x="0" y="0" width="100" height="30" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="5" />
+      <text x="50" y="20" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Locomotion Control</text>
+    </g>
+
+    <!-- Real environment -->
+    <rect x="20" y="160" width="860" height="30" fill="#2c3e50" stroke="#1a252f" stroke-width="2" />
+    <text x="450" y="185" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Real Environment</text>
+  </g>
+
+  <!-- Feedback loops -->
+  <line x1="175" y1="300" x2="175" y2="350" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+  <text x="175" y="330" text-anchor="middle" font-family="Arial" font-size="10" fill="#c0392b" transform="rotate(-90 175,330)">Sim-to-Real</text>
+
+  <line x1="825" y1="300" x2="825" y2="350" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+  <text x="825" y="330" text-anchor="middle" font-family="Arial" font-size="10" fill="#c0392b" transform="rotate(-90 825,330)">Training Data</text>
+
+  <!-- System Integration -->
+  <g transform="translate(50, 580)">
+    <rect x="0" y="0" width="900" height="80" fill="#2c3e50" stroke="#1a252f" stroke-width="3" rx="15" />
+    <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="18" fill="white">Complete Autonomous Navigation Pipeline</text>
+    <text x="450" y="55" text-anchor="middle" font-family="Arial" font-size="14" fill="#ecf0f1">Isaac Sim → Isaac ROS → Nav2 → Physical Robot → Feedback Loop</text>
+  </g>
+
+  <!-- Process Flow -->
+  <g transform="translate(50, 680)">
+    <rect x="0" y="0" width="900" height="20" fill="#3498db" stroke="#2980b9" stroke-width="1" rx="5" />
+    <text x="450" y="15" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Simulation → Perception → Planning → Control → Execution → Learning</text>
+  </g>
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+    </marker>
+  </defs>
+</svg>

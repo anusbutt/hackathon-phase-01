@@ -1,0 +1,94 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <title>Isaac ROS Pipeline Architecture</title>
+  <desc>Diagram showing Isaac ROS hardware-accelerated perception pipeline with GPU acceleration</desc>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Isaac ROS Pipeline</text>
+
+  <!-- Sensor Input -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="120" height="80" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="10" />
+    <text x="60" y="30" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Sensors</text>
+    <text x="60" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Camera</text>
+    <text x="60" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="white">LiDAR</text>
+  </g>
+
+  <!-- ROS2 Bridge -->
+  <g transform="translate(200, 100)">
+    <rect x="0" y="0" width="120" height="80" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="10" />
+    <text x="60" y="30" text-anchor="middle" font-family="Arial" font-size="14" fill="white">ROS2</text>
+    <text x="60" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Bridge</text>
+    <text x="60" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Topics</text>
+  </g>
+
+  <!-- GPU Acceleration -->
+  <g transform="translate(350, 100)">
+    <rect x="0" y="0" width="200" height="80" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="10" />
+    <text x="100" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">GPU Acceleration</text>
+    <text x="100" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">CUDA Cores</text>
+    <text x="100" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Tensor Cores</text>
+  </g>
+
+  <!-- Isaac ROS GEMs -->
+  <g transform="translate(580, 100)">
+    <rect x="0" y="0" width="120" height="80" fill="#f39c12" stroke="#d35400" stroke-width="2" rx="10" />
+    <text x="60" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Isaac ROS</text>
+    <text x="60" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">GEMs</text>
+    <text x="60" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">(cuVSLAM)</text>
+  </g>
+
+  <!-- Perception Output -->
+  <g transform="translate(730, 100)">
+    <rect x="0" y="0" width="120" height="80" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="10" />
+    <text x="60" y="25" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Perception</text>
+    <text x="60" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Output</text>
+    <text x="60" y="65" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Pose, Map</text>
+  </g>
+
+  <!-- Data Flow Arrows -->
+  <line x1="170" y1="140" x2="200" y2="140" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="320" y1="140" x2="350" y2="140" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="550" y1="140" x2="580" y2="140" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="700" y1="140" x2="730" y2="140" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+
+  <!-- Performance Improvement -->
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="800" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Performance Benefits</text>
+
+    <!-- CPU vs GPU Comparison -->
+    <g transform="translate(100, 50)">
+      <rect x="0" y="0" width="120" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" />
+      <text x="60" y="20" text-anchor="middle" font-family="Arial" font-size="12" fill="white">CPU: 1 FPS</text>
+    </g>
+
+    <g transform="translate(340, 50)">
+      <text x="0" y="20" font-family="Arial" font-size="14" fill="#2c3e50">vs</text>
+    </g>
+
+    <g transform="translate(580, 50)">
+      <rect x="0" y="0" width="120" height="30" fill="#2ecc71" stroke="#27ae60" stroke-width="2" />
+      <text x="60" y="20" text-anchor="middle" font-family="Arial" font-size="12" fill="white">GPU: 30+ FPS</text>
+    </g>
+  </g>
+
+  <!-- Hardware Requirements -->
+  <g transform="translate(50, 350)">
+    <rect x="0" y="0" width="800" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10" />
+    <text x="400" y="25" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Hardware Requirements</text>
+    <text x="400" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">NVIDIA GPU (RTX Series, Jetson, or Data Center)</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">CUDA Compute Capability 6.0+</text>
+    <text x="400" y="90" text-anchor="middle" font-family="Arial" font-size="12" fill="#2c3e50">Conceptual Understanding Available Without Hardware</text>
+  </g>
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+    </marker>
+  </defs>
+</svg>

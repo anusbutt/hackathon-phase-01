@@ -1,0 +1,71 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 24px sans-serif; fill: #333; }
+    .subtitle { font: 16px sans-serif; fill: #666; }
+    .box { fill: #e3f2fd; stroke: #1565c0; stroke-width: 2; rx: 10; ry: 10; }
+    .arrow { stroke: #1565c0; stroke-width: 2; marker-end: url(#arrowhead); }
+    .label { font: 14px sans-serif; fill: #333; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0" />
+    </marker>
+  </defs>
+
+  <text x="400" y="40" class="title" text-anchor="middle">Whisper Integration for Robotics</text>
+  <text x="400" y="70" class="subtitle" text-anchor="middle">Speech recognition pipeline for voice commands</text>
+
+  <!-- Audio Input -->
+  <rect x="100" y="100" width="180" height="80" class="box"/>
+  <text x="190" y="130" class="label">Audio Input</text>
+  <text x="190" y="150" class="label">(Microphone, WAV, MP3)</text>
+
+  <!-- Audio Preprocessing -->
+  <rect x="100" y="220" width="180" height="80" class="box"/>
+  <text x="190" y="250" class="label">Audio</text>
+  <text x="190" y="270" class="label">Preprocessing</text>
+
+  <!-- Arrow from Audio Input to Preprocessing -->
+  <line x1="190" y1="180" x2="190" y2="220" class="arrow"/>
+
+  <!-- Whisper API -->
+  <rect x="320" y="220" width="180" height="80" class="box"/>
+  <text x="410" y="250" class="label">OpenAI</text>
+  <text x="410" y="270" class="label">Whisper API</text>
+
+  <!-- Arrow from Preprocessing to Whisper -->
+  <line x1="280" y1="260" x2="320" y2="260" class="arrow"/>
+
+  <!-- Text Output -->
+  <rect x="540" y="220" width="180" height="80" class="box"/>
+  <text x="630" y="250" class="label">Transcribed</text>
+  <text x="630" y="270" class="label">Text Output</text>
+
+  <!-- Arrow from Whisper to Text Output -->
+  <line x1="500" y1="260" x2="540" y2="260" class="arrow"/>
+
+  <!-- Processing Steps -->
+  <text x="100" y="350" class="label" text-anchor="start" font-weight="bold">Preprocessing Steps:</text>
+  <text x="100" y="380" class="label" text-anchor="start">• Noise reduction</text>
+  <text x="100" y="400" class="label" text-anchor="start">• Format conversion</text>
+  <text x="100" y="420" class="label" text-anchor="start">• Audio normalization</text>
+  <text x="100" y="440" class="label" text-anchor="start">• Sample rate adjustment</text>
+
+  <!-- Whisper Features -->
+  <text x="400" y="350" class="label" text-anchor="middle" font-weight="bold">Whisper Capabilities:</text>
+  <text x="400" y="380" class="label" text-anchor="middle">• Multiple language support</text>
+  <text x="400" y="400" class="label" text-anchor="middle">• Punctuation and capitalization</text>
+  <text x="400" y="420" class="label" text-anchor="middle">• Timestamps for segments</text>
+  <text x="400" y="440" class="label" text-anchor="middle">• Confidence scoring</text>
+
+  <!-- Robotics Integration -->
+  <text x="650" y="350" class="label" text-anchor="start" font-weight="bold">Robotics Integration:</text>
+  <text x="650" y="380" class="label" text-anchor="start">• Command parsing</text>
+  <text x="650" y="400" class="label" text-anchor="start">• Intent recognition</text>
+  <text x="650" y="420" class="label" text-anchor="start">• Context understanding</text>
+  <text x="650" y="440" class="label" text-anchor="start">• Error handling</text>
+
+  <!-- API Flow -->
+  <text x="400" y="500" class="subtitle" text-anchor="middle">API Request Flow: Audio → Whisper → Text → ROS2 Command</text>
+  <text x="400" y="530" class="subtitle" text-anchor="middle">Real-time processing with latency considerations for robotics</text>
+</svg>

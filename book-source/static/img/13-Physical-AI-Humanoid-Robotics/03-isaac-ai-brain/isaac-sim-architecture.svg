@@ -1,0 +1,70 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Isaac Sim Architecture Diagram</title>
+  <desc>Placeholder diagram showing Isaac Sim architecture with simulation environment, humanoid robot model, sensors, and photorealistic rendering pipeline</desc>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="#2c3e50">Isaac Sim Architecture</text>
+
+  <!-- Simulation Environment -->
+  <rect x="100" y="100" width="600" height="400" fill="none" stroke="#3498db" stroke-width="3" rx="10" />
+  <text x="400" y="130" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">Simulation Environment</text>
+
+  <!-- Humanoid Robot -->
+  <g transform="translate(350, 300)">
+    <!-- Robot body -->
+    <rect x="-30" y="-60" width="60" height="80" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2" />
+    <!-- Robot head -->
+    <circle cx="0" cy="-80" r="20" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2" />
+    <!-- Robot arms -->
+    <line x1="-30" y1="-40" x2="-70" y2="-20" stroke="#7f8c8d" stroke-width="4" />
+    <line x1="30" y1="-40" x2="70" y2="-20" stroke="#7f8c8d" stroke-width="4" />
+    <!-- Robot legs -->
+    <line x1="-20" y1="20" x2="-20" y2="80" stroke="#7f8c8d" stroke-width="4" />
+    <line x1="20" y1="20" x2="20" y2="80" stroke="#7f8c8d" stroke-width="4" />
+    <text x="0" y="100" text-anchor="middle" font-family="Arial" font-size="14" fill="#2c3e50">Humanoid Robot</text>
+  </g>
+
+  <!-- Sensors -->
+  <g transform="translate(200, 150)">
+    <rect x="0" y="0" width="80" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+    <text x="40" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Cameras</text>
+  </g>
+
+  <g transform="translate(520, 150)">
+    <rect x="0" y="0" width="80" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+    <text x="40" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="white">LiDAR</text>
+  </g>
+
+  <g transform="translate(200, 220)">
+    <rect x="0" y="0" width="80" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+    <text x="40" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="white">IMU</text>
+  </g>
+
+  <g transform="translate(520, 220)">
+    <rect x="0" y="0" width="80" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5" />
+    <text x="40" y="25" text-anchor="middle" font-family="Arial" font-size="12" fill="white">Force/Torque</text>
+  </g>
+
+  <!-- Photorealistic Rendering Pipeline -->
+  <g transform="translate(100, 420)">
+    <rect x="0" y="0" width="600" height="80" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="10" />
+    <text x="300" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Photorealistic Rendering Pipeline</text>
+    <text x="300" y="55" text-anchor="middle" font-family="Arial" font-size="12" fill="white">RTX Ray Tracing • Global Illumination • Material Simulation</text>
+  </g>
+
+  <!-- Arrows showing data flow -->
+  <line x1="400" y1="200" x2="400" y2="380" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="240" y1="170" x2="330" y2="260" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="560" y1="170" x2="450" y2="260" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+    </marker>
+  </defs>
+</svg>
