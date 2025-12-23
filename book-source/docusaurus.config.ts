@@ -18,14 +18,14 @@ const config: Config = {
   url: 'https://anusbutt.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ros2-physical-ai-book/',
+  baseUrl: '/hackathon-phase-01/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'anusbutt', // Usually your GitHub org/user name.
-  projectName: 'ros2-physical-ai-book', // Usually your repo name.
+  projectName: 'hackathon-phase-01', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
