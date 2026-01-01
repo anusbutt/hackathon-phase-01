@@ -37,3 +37,15 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# Phase 2 Backend - Python
+backend/.env
+backend/__pycache__/
+backend/.pytest_cache/
+backend/venv/
+backend/.venv/
+backend/*.pyc
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/data/extracted_lessons.json
+backend/data/chunks.json

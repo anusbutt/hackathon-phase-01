@@ -1,0 +1,22 @@
+# FastAPI and server
+fastapi>=0.100.0
+uvicorn[standard]>=0.24.0
+python-dotenv>=1.0.0
+
+# OpenAI Agents SDK and LLM providers
+openai-agents>=0.6.0
+openai>=1.0.0
+
+# Embeddings and vector database
+cohere>=4.0.0
+qdrant-client>=1.7.0
+
+# Database
+asyncpg>=0.29.0
+
+# Data validation and serialization
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# HTTP client
+httpx>=0.25.0
