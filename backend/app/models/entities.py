@@ -6,7 +6,7 @@ Core business entities used throughout the application.
 
 from pydantic import BaseModel, Field
 from typing import List, Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 class ChunkMetadata(BaseModel):
@@ -43,13 +43,13 @@ class Conversation(BaseModel):
     """
     conversation_id: str = Field(..., description="Unique conversation identifier (UUID)")
     messages: List = Field(default_factory=list, description="List of Message objects")
-    created_at: datetime = Field(default_factory=datetime.utcnow, description="When conversation started")
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc), description="When conversation started")
     expires_at: datetime = Field(..., description="When conversation expires (7 days)")
 
     @classmethod
     def create_new(cls, conversation_id: str):
         """Create a new conversation with 7-day expiry."""
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         return cls(
             conversation_id=conversation_id,
             messages=[],
@@ -59,7 +59,7 @@ class Conversation(BaseModel):
 
     def is_expired(self) -> bool:
         """Check if conversation has expired."""
-        return datetime.utcnow() > self.expires_at
+        return datetime.now(timezone.utc) > self.expires_at
 
     def add_message(self, message):
         """Add a message to the conversation."""

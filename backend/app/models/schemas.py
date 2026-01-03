@@ -6,7 +6,7 @@ All request and response models for the RAG chatbot API.
 
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional, Literal
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class Source(BaseModel):
@@ -26,7 +26,7 @@ class Message(BaseModel):
     """
     role: Literal["user", "assistant"] = Field(..., description="Message sender")
     content: str = Field(..., description="Message content")
-    timestamp: datetime = Field(default_factory=datetime.utcnow, description="When message was created")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc), description="When message was created")
     sources: Optional[List[Source]] = Field(None, description="Source citations (assistant only)")
     selected_text: Optional[str] = Field(None, description="User-selected text (user only)")
 
@@ -71,7 +71,7 @@ class ChatQueryResponse(BaseModel):
     response: str = Field(..., description="Chatbot's answer")
     sources: List[Source] = Field(default_factory=list, description="Source citations")
     conversation_id: str = Field(..., description="Unique conversation ID")
-    timestamp: datetime = Field(default_factory=datetime.utcnow, description="Response timestamp")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc), description="Response timestamp")
     retrieved_chunks: Optional[int] = Field(None, description="Number of chunks retrieved from vector search")
     used_selected_text: Optional[bool] = Field(None, description="Whether selected text was used in the query")
 
@@ -91,5 +91,5 @@ class HealthResponse(BaseModel):
     """
     status: Literal["healthy", "degraded", "unhealthy"] = Field(..., description="Overall health status")
     services: dict = Field(..., description="Status of individual services")
-    timestamp: datetime = Field(default_factory=datetime.utcnow, description="Health check timestamp")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc), description="Health check timestamp")
     version: str = Field(..., description="API version")

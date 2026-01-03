@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException, status
 from typing import Optional
 import logging
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from app.models.schemas import ChatQueryRequest, ChatQueryResponse, ChatFeedbackRequest, Message
 from app.services.rag_service import RAGService
@@ -41,7 +41,7 @@ def validate_conversation_expiry(conversation_created_at: Optional[datetime]) ->
     if not conversation_created_at:
         return  # New conversation, no expiry check needed
 
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     expiry_date = conversation_created_at + timedelta(days=CONVERSATION_EXPIRY_DAYS)
 
     if now > expiry_date:
@@ -138,7 +138,7 @@ async def chat_query(request: ChatQueryRequest):
             response=result['response'],
             sources=result['sources'],
             conversation_id=conversation_id,
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(timezone.utc),
             retrieved_chunks=result.get('retrieved_chunks'),
             used_selected_text=result.get('used_selected_text')
         )

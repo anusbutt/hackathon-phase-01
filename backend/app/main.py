@@ -7,7 +7,7 @@ all middleware, routers, and startup/shutdown events.
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 from app.api.chat import router as chat_router, initialize_chat_services
@@ -62,7 +62,7 @@ async def health_check():
     """
     return {
         "status": "healthy",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "version": "1.0.0",
         "services": {
             "api": True
