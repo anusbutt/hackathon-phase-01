@@ -20,7 +20,8 @@ const getBackendUrl = (): string => {
   }
 
   // For production, use Railway backend URL (deployed January 3, 2026)
-  return process.env.REACT_APP_BACKEND_URL || 'https://virtuous-creativity-production.up.railway.app';
+  // Note: process.env is not available in browser, so we hardcode the production URL
+  return 'https://virtuous-creativity-production.up.railway.app';
 };
 
 const BACKEND_URL = getBackendUrl();
