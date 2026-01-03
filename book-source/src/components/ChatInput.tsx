@@ -8,7 +8,7 @@ import { CHAT_CONSTANTS } from '../types/chat';
 import styles from './ChatInput.module.css';
 
 interface ChatInputProps {
-  onSendMessage: (query: string, selectedText?: string | null) => void;
+  onSendMessage: (query: string, selectedText?: string | null) => Promise<void>;
   isLoading: boolean;
   selectedText?: string | null;
   onClearSelection?: () => void;
@@ -45,14 +45,14 @@ export const ChatInput: React.FC<ChatInputProps> = ({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const trimmedQuery = query.trim();
     if (!trimmedQuery || isLoading) return;
 
     // Send message
-    onSendMessage(trimmedQuery, selectedText);
+    await onSendMessage(trimmedQuery, selectedText);
 
     // Clear input
     setQuery('');
