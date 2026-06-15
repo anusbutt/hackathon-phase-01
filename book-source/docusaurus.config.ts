@@ -85,7 +85,7 @@ const config: Config = {
       title: 'Physical AI & Humanoid Robotics Textbook',
       logo: {
         alt: 'Physical AI Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
@@ -126,11 +126,11 @@ const config: Config = {
             },
             {
               label: 'LinkedIn',
-              href: 'https://linkedin.com',
+              href: 'https://www.linkedin.com/in/anus-yousuf',
             },
             {
               label: 'X (Twitter)',
-              href: 'https://x.com',
+              href: 'https://x.com/Iamanusbutt',
             },
           ],
         },
@@ -139,11 +139,11 @@ const config: Config = {
           items: [
             {
               label: 'Instagram',
-              href: 'https://instagram.com',
+              href: 'https://www.instagram.com/anusss._/',
             },
             {
               label: 'Panaversity',
-              href: 'https://panaversity.com',
+              href: 'https://panaversity.org',
             },
           ],
         },
